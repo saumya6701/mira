@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Portal - Dr. Kavya Deshmukh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .sidebar-link.active { background-color: #2563eb; color: white; }
+        .sidebar-link.active i { color: white; }
+        .card { background: white; border-radius: 0.75rem; border: 1px solid #e2e8f0; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col">
+        <div class="p-6">
+            <div class="flex items-center gap-2 text-blue-600 font-bold text-lg mb-1">
+                <i class="fa-solid fa-stethoscope"></i>
+                <span>Doctor Portal</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-gray-500 bg-slate-50 p-2 rounded-lg border">
+                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                Dr. Kavya Deshmukh
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-1 overflow-y-auto">
+            <a href="#" onclick="showPage('dashboard')" id="link-dashboard" class="sidebar-link active flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-table-columns w-5 text-slate-400"></i> <span class="text-sm font-medium">Dashboard</span>
+            </a>
+            <a href="#" onclick="showPage('schedule')" id="link-schedule" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-calendar-days w-5 text-slate-400"></i> <span class="text-sm font-medium">My Schedule</span>
+            </a>
+            <a href="#" onclick="showPage('patients')" id="link-patients" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-user-group w-5 text-slate-400"></i> <span class="text-sm font-medium">Patient Records</span>
+            </a>
+            <a href="#" onclick="showPage('lab')" id="link-lab" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-vial w-5 text-slate-400"></i> <span class="text-sm font-medium">Lab Results</span>
+            </a>
+            <a href="#" onclick="showPage('imaging')" id="link-imaging" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-x-ray w-5 text-slate-400"></i> <span class="text-sm font-medium">Imaging & Scans</span>
+            </a>
+            <a href="#" onclick="showPage('referrals')" id="link-referrals" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-file-export w-5 text-slate-400"></i> <span class="text-sm font-medium">Referrals</span>
+            </a>
+        </nav>
+        
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-gear w-5 text-slate-400"></i> <span class="text-sm font-medium">Settings</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shrink-0">
+            <h1 id="page-title" class="text-xl font-bold text-slate-800">Dashboard</h1>
+            <div class="flex items-center gap-4">
+                <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-1 rounded-full">12 appointments today</span>
+                <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">3 urgent reviews</span>
+            </div>
+        </header>
+
+        <div id="content-area" class="flex-1 overflow-y-auto p-8">
+            </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
