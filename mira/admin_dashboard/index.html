@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAdmin ERP - Ultimate Command</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .sidebar-link.active { background-color: #f1f5f9; color: #2563eb; border-right: 4px solid #2563eb; }
+        .sidebar-link.active i { color: #2563eb; }
+        .card { background: white; border: 1px solid #e2e8f0; border-radius: 0.75rem; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+        .status-pill { padding: 2px 8px; border-radius: 9999px; font-size: 10px; font-weight: 700; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden text-slate-700">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col shrink-0">
+        <div class="p-6 border-b">
+            <div class="flex items-center gap-2 text-blue-600 font-bold text-xl">
+                <i class="fa-solid fa-shield-heart"></i>
+                <span>MedAdmin <span class="text-slate-400 font-medium text-sm">ERP</span></span>
+            </div>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto py-4">
+            <div class="px-4 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main Menu</div>
+            <a href="#" onclick="showPage('overview')" id="link-overview" class="sidebar-link active flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-chart-pie w-5"></i> <span>System Overview</span>
+            </a>
+            <a href="#" onclick="showPage('department')" id="link-department" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-sitemap w-5"></i> <span>Departments</span>
+            </a>
+            <a href="#" onclick="showPage('operation')" id="link-operation" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-bed-pulse w-5"></i> <span>Operations (OT)</span>
+            </a>
+            
+            <div class="px-4 mt-6 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Analytics & Finance</div>
+            <a href="#" onclick="showPage('reports')" id="link-reports" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-file-invoice-dollar w-5"></i> <span>Reports & Insights</span>
+            </a>
+            <a href="#" onclick="showPage('financial')" id="link-financial" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-indian-rupee-sign w-5"></i> <span>Financial Management</span>
+            </a>
+
+            <div class="px-4 mt-6 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Infrastructure</div>
+            <a href="#" onclick="showPage('security')" id="link-security" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-vault w-5"></i> <span>Security & Access</span>
+            </a>
+            <a href="#" onclick="showPage('database')" id="link-database" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-database w-5"></i> <span>Database Management</span>
+            </a>
+            <a href="#" onclick="showPage('backup')" id="link-backup" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-cloud-arrow-up w-5"></i> <span>Backup & Recovery</span>
+            </a>
+            <a href="#" onclick="showPage('maintenance')" id="link-maintenance" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-screwdriver-wrench w-5"></i> <span>Maintenance</span>
+            </a>
+
+            <div class="px-4 mt-6 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Support</div>
+            <a href="#" onclick="showPage('help')" id="link-help" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-circle-question w-5"></i> <span>Help & Support</span>
+            </a>
+            <a href="#" onclick="showPage('settings')" id="link-settings" class="sidebar-link flex items-center gap-3 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-all">
+                <i class="fa-solid fa-gears w-5"></i> <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b flex items-center justify-between px-8 shrink-0">
+            <h1 id="page-title" class="text-lg font-bold">System Overview</h1>
+            <div class="flex items-center gap-4">
+                <div class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-bold border border-emerald-100">
+                    SERVER: OPTIMAL
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-100 border flex items-center justify-center text-xs font-bold">AD</div>
+            </div>
+        </header>
+
+        <div id="content-area" class="flex-1 overflow-y-auto p-8">
+            </div>
+    </main>
+
+   <script src="script.js"></script>
+</body>
+</html>

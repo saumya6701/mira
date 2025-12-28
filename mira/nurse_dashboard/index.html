@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse Portal - Meera Nair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        .sidebar-link.active { background-color: #2563eb; color: white; }
+        .sidebar-link.active i { color: white; }
+        .card { background: white; border-radius: 0.75rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col shrink-0">
+        <div class="p-4 border-b">
+            <button class="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 mb-4">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            <div class="flex items-center gap-2 text-rose-600 font-bold text-lg mb-1">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Nurse Portal</span>
+            </div>
+            <div class="flex items-center gap-2 text-[10px] text-emerald-700 bg-emerald-50 p-2 rounded-lg border border-emerald-100">
+                <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                Meera Nair - Ward 3B
+            </div>
+        </div>
+
+        <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+            <a href="#" onclick="showPage('dashboard')" id="link-dashboard" class="sidebar-link active flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-table-columns w-5 text-slate-400"></i> <span class="text-sm font-medium">Dashboard</span>
+            </a>
+            <a href="#" onclick="showPage('schedule')" id="link-schedule" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-calendar-check w-5 text-slate-400"></i> <span class="text-sm font-medium">My Schedule</span>
+            </a>
+            <a href="#" onclick="showPage('patients')" id="link-patients" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-user-nurse w-5 text-slate-400"></i> <span class="text-sm font-medium">My Patients</span>
+            </a>
+            <a href="#" onclick="showPage('vitals')" id="link-vitals" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-wave-square w-5 text-slate-400"></i> <span class="text-sm font-medium">Vital Signs</span>
+            </a>
+            <a href="#" onclick="showPage('tasks')" id="link-tasks" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-list-check w-5 text-slate-400"></i> <span class="text-sm font-medium">Care Tasks</span>
+            </a>
+            <a href="#" onclick="showPage('iv')" id="link-iv" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-droplet w-5 text-slate-400"></i> <span class="text-sm font-medium">IV Therapy</span>
+            </a>
+            <a href="#" onclick="showPage('ai')" id="link-ai" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-wand-magic-sparkles w-5 text-slate-400"></i> <span class="text-sm font-medium">AI Analysis</span>
+            </a>
+        </nav>
+        
+        <div class="p-4 border-t">
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors">
+                <i class="fa-solid fa-gear w-5 text-slate-400"></i> <span class="text-sm font-medium">Settings</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shrink-0">
+            <div>
+                <h1 id="page-title" class="text-xl font-bold text-slate-800">Dashboard</h1>
+                <p id="sub-header" class="text-xs text-slate-500">Ward 3B - Shift: 7AM - 3PM</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded">8 patients assigned</span>
+                <span class="bg-rose-600 text-white text-[10px] font-bold px-2 py-1 rounded">1 urgent alert</span>
+            </div>
+        </header>
+
+        <div id="content-area" class="flex-1 overflow-y-auto p-6 bg-slate-50/50">
+            </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
